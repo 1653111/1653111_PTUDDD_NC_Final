@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:q_final_project/home_screen/top_new_widget.dart';
+import 'package:q_final_project/home_screen/top_new.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
 
 class SearchScreen extends StatefulWidget {

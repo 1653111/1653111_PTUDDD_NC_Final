@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 
 class HorizontalListItem extends StatelessWidget {
   String title, subtitle, description, createdAt;
-  int ratedNumber, soldNumber, totalHours;
+  int ratedNumber, soldNumber;
+  double totalHours;
   String imageUrl;
   EdgeInsets paddingElement = EdgeInsets.only(left: 4.0, top: 5.0);
   HorizontalListItem(
@@ -45,21 +46,24 @@ class HorizontalListItem extends StatelessWidget {
                 padding: paddingElement,
                 child: Text(
                   title,
-                  style: TextStyle(fontSize: 20.0, color: Colors.white),
+                  style:
+                      TextStyle(fontSize: 20.0, color: Colors.white),
                 ),
               ),
               Container(
                 padding: paddingElement,
                 child: Text(
                   subtitle,
-                  style: TextStyle(fontSize: 15.0, color: Colors.grey.shade500),
+                  style: TextStyle(
+                      fontSize: 15.0, color: Colors.grey.shade500),
                 ),
               ),
               Container(
                 padding: paddingElement,
                 child: Text(
                   "$description  .  ${dateFormat(createdAt)}  .  ${totalHours}h",
-                  style: TextStyle(fontSize: 15.0, color: Colors.grey.shade500),
+                  style: TextStyle(
+                      fontSize: 15.0, color: Colors.grey.shade500),
                 ),
               ),
             ]),

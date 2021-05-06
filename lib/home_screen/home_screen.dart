@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:q_final_project/home_screen/listing_page.dart';
-import 'package:q_final_project/home_screen/top_new_widget.dart';
+import 'package:q_final_project/home_screen/top_new.dart';
 import 'package:q_final_project/home_screen/top_trending.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           SizedBox(height: 15.0),
-          TopNewWidget(),
+          TopNew(),
           SizedBox(height: 15.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

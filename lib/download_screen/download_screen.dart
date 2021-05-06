@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:q_final_project/component.dart';
 import 'package:q_final_project/widgets/vertical_list_item.dart';
 
