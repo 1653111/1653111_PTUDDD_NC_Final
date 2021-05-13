@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:q_final_project/controller/top_new_controller.dart';
+import 'package:q_final_project/controller/top_trending_controller.dart';
 import 'package:q_final_project/home_screen/listing_page.dart';
 import 'package:q_final_project/home_screen/top_new.dart';
 import 'package:q_final_project/home_screen/top_trending.dart';
@@ -25,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                       backgroundColor:
                           MaterialStateProperty.all(Colors.grey.shade700)),
                   onPressed: () {
-                    Get.to(ListingPage('New'));
+                    Get.to(ListingPage(Get.find<TopNewController>().topNew));
                   },
                   child: Row(
                     children: [
@@ -52,8 +54,9 @@ class HomeScreen extends StatelessWidget {
                       backgroundColor:
                           MaterialStateProperty.all(Colors.grey.shade700)),
                   onPressed: () {
-                    Get.to(ListingPage('Trending'));
-                    },
+                    Get.to(ListingPage(
+                        Get.find<TopTrendingController>().topTrending));
+                  },
                   child: Row(
                     children: [
                       Text("See all"),

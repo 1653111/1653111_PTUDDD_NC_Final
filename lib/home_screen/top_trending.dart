@@ -34,10 +34,8 @@ class _TopTrendingState extends State<TopTrending> {
                         title: topT.topTrending[index]["title"],
                         subtitle: topT.topTrending[index]["subtitle"],
                         createdAt: topT.topTrending[index]["createdAt"],
-                        description: topT.topTrending[index]
-                            ["description"],
-                        ratedNumber: topT.topTrending[index]
-                            ["ratedNumber"],
+                        description: topT.topTrending[index]["description"],
+                        ratedNumber: topT.topTrending[index]["ratedNumber"].toDouble(),
                         soldNumber: topT.topTrending[index]["soldNumber"],
                         totalHours: topT.topTrending[index]["totalHours"],
                       );

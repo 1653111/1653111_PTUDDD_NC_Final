@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class VerticalListItem extends StatelessWidget {
   String title, subtitle, description, createdAt;
-  int ratedNumber, soldNumber, totalHours;
+  int ratedNumber, soldNumber;
+  double totalHours;
   String imageUrl;
   EdgeInsets paddingElement = EdgeInsets.only(left: 1.0, top: 3.0);
   VerticalListItem(
@@ -31,7 +33,7 @@ class VerticalListItem extends StatelessWidget {
         child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.network(
                 imageUrl,
@@ -39,33 +41,42 @@ class VerticalListItem extends StatelessWidget {
                 width: 90.0,
               ),
               Container(
-                
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,children: [
-                Container(
-                  child: Text(
-                    title,
-                    style: TextStyle(fontSize: 20.0, color: Colors.white),
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    subtitle,
-                    style:
-                        TextStyle(fontSize: 15.0, color: Colors.grey.shade500),
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    "$description  .  ${dateFormat(createdAt)}  .  ${totalHours}h",
-                    style:
-                        TextStyle(fontSize: 15.0, color: Colors.grey.shade500),
-                  ),
-                ),
-              ])),
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    Container(
+                      child: AutoSizeText(
+                        title,
+                        style: TextStyle(fontSize: 16.0, color: Colors.white),
+                        maxLines: 2,
+                        minFontSize: 12.0,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Container(
+                      child: AutoSizeText(
+                        subtitle,
+                        style: TextStyle(
+                            fontSize: 14.0, color: Colors.grey.shade500),
+                        maxLines: 1,
+                        minFontSize: 12.0,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Container(
+                      child: AutoSizeText(
+                        "$description  .  ${dateFormat(createdAt)}  .  ${totalHours}h",
+                        style: TextStyle(
+                            fontSize: 12.0, color: Colors.grey.shade500),
+                        maxLines: 1,
+                        minFontSize: 10.0,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ])),
               Icon(
                 Icons.keyboard_control_rounded,
-                size: 30.0,
+                size: 10.0,
                 color: Colors.white,
               )
             ]),

@@ -26,6 +26,8 @@ dependencies:
   get:
   http:
   flutter_search_bar:
+  auto_size_text:
+  flutter_rating_bar:
 
 
   # The following adds the Cupertino Icons font to your application.

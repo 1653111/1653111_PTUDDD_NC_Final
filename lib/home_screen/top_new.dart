@@ -37,7 +37,7 @@ class _TopNewState extends State<TopNew> {
                         description: topN.topNew[index]
                             ["description"],
                         ratedNumber: topN.topNew[index]
-                            ["ratedNumber"],
+                            ["ratedNumber"].toDouble(),
                         soldNumber: topN.topNew[index]["soldNumber"],
                         totalHours: topN.topNew[index]["totalHours"],
                       );

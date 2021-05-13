@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:q_final_project/home_screen/home_screen.dart';
 import 'package:q_final_project/login_screen/signin_screen.dart';
+import 'package:q_final_project/login_screen/register_screen.dart';
+import 'package:get/get.dart';
 
 class InitScreen extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -43,7 +46,9 @@ class InitScreen extends StatelessWidget {
             height: 5.0,
           ),
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(RegisterScreen());
+            },
             child: Center(child: Text('Subscribe to Pluralsight')),
             style: ButtonStyle(
               side: MaterialStateProperty.all(BorderSide(
@@ -56,8 +61,10 @@ class InitScreen extends StatelessWidget {
             height: 5.0,
           ),
           OutlinedButton(
-            onPressed: () {},
-            child: Center(child: Text('Forget')),
+            onPressed: () {
+              Get.to(HomeScreen());
+            },
+            child: Center(child: Text('Explore without a subscription')),
             style: ButtonStyle(
               side: MaterialStateProperty.all(BorderSide(
                 color: Colors.blue,

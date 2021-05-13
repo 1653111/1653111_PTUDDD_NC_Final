@@ -6,7 +6,7 @@ class TopTrendingController extends GetxController {
   var topTrending;
   Future<void> loadTopTrending() async {
     var response = await http.post(
-        Uri.https("api.letstudy.org", "/course/top-trending"),
+        Uri.https("api.letstudy.org", "/course/top-rate"),
         headers: {'Content-type': 'application/json'},
         body: json.encode({"limit": 10, "page": 1}));
     var tmp = response.body;

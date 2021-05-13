@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:q_final_project/controller/login_controller.dart';
 import 'package:q_final_project/dashboard/dashboard.dart';
 import 'package:get/get.dart';
+import 'package:q_final_project/login_screen/register_screen.dart';
 
 class SigninScreen extends StatefulWidget {
   @override
@@ -10,11 +12,19 @@ class SigninScreen extends StatefulWidget {
 class _SigninScreenState extends State<SigninScreen> {
   String _username = "", _password = "";
   TextEditingController _textUsername, _textPassword;
+  LoginController login = Get.put(LoginController());
   @override
   void initState() {
     super.initState();
     _textUsername = TextEditingController(text: _username);
     _textPassword = TextEditingController(text: _password);
+  }
+
+  void userLogin() async {
+    await login.login(_username, _password);
+    if (login.user != null) {
+      Get.to(Dashboard());
+    }
   }
 
   Widget build(BuildContext context) {
@@ -52,7 +62,7 @@ class _SigninScreenState extends State<SigninScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              Get.off(Dashboard());
+              userLogin();
             },
             child: Center(
               child: Text("Sign in"),
@@ -64,8 +74,10 @@ class _SigninScreenState extends State<SigninScreen> {
             height: 5.0,
           ),
           OutlinedButton(
-            onPressed: () {},
-            child: Center(child: Text('Subscribe to Pluralsight')),
+            onPressed: () {
+              Get.to(RegisterScreen());
+            },
+            child: Center(child: Text('Use Single Sign-On (SSO)')),
             style: ButtonStyle(
               side: MaterialStateProperty.all(BorderSide(
                 color: Colors.blue,
@@ -77,8 +89,10 @@ class _SigninScreenState extends State<SigninScreen> {
             height: 5.0,
           ),
           OutlinedButton(
-            onPressed: () {},
-            child: Center(child: Text('Forget')),
+            onPressed: () {
+              Get.to(RegisterScreen());
+            },
+            child: Center(child: Text('Subscribe to Pluralsight')),
             style: ButtonStyle(
               side: MaterialStateProperty.all(BorderSide(
                 color: Colors.blue,
