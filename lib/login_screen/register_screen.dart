@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:q_final_project/login_screen/auth_token.dart';
+
 class RegisterScreen extends StatefulWidget {
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -12,6 +14,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   String _username = "", _password = "", _email = "", _phone = "";
   TextEditingController _textUsername, _textPassword, _textEmail, _textPhone;
+  bool obscure;
   @override
   void initState() {
     super.initState();
@@ -43,7 +46,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       var tmp2 = response2.body;
       var tmp3 = json.decode(tmp2);
       if (tmp3["message"] == "OK") {
-        Get.back();
+        Get.to(AuthTokenScreen());
       }
     }
   }
@@ -93,6 +96,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
           SizedBox(height: 6.0),
           TextField(
             decoration: InputDecoration(
+              prefix: IconButton(
+                icon: Icon(Icons.remove_red_eye_rounded),
+                iconSize: 17.0,
+                onPressed: () {
+                  setState(() {
+                    obscure = !obscure;
+                  });
+                },
+              ),
               hintText: '',
             ),
             controller: _textPassword,

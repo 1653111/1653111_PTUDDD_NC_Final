@@ -13,6 +13,7 @@ class _SigninScreenState extends State<SigninScreen> {
   String _username = "", _password = "";
   TextEditingController _textUsername, _textPassword;
   LoginController login = Get.put(LoginController());
+  bool obscure = true;
   @override
   void initState() {
     super.initState();
@@ -40,7 +41,7 @@ class _SigninScreenState extends State<SigninScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Email or username", style: TextStyle(fontSize: 10)),
+          Text("Email or username", style: TextStyle(fontSize: 14)),
           SizedBox(height: 6.0),
           TextField(
             decoration: InputDecoration(
@@ -50,15 +51,24 @@ class _SigninScreenState extends State<SigninScreen> {
             onChanged: (value) => _username = value.trim(),
           ),
           SizedBox(height: 6.0),
-          Text("Password", style: TextStyle(fontSize: 10)),
+          Text("Password", style: TextStyle(fontSize: 14)),
           SizedBox(height: 6.0),
           TextField(
             decoration: InputDecoration(
+              prefix: IconButton(
+                icon: Icon(Icons.remove_red_eye_rounded),
+                iconSize: 17.0,
+                onPressed: () {
+                  setState(() {
+                    obscure = !obscure;
+                  });
+                },
+              ),
               hintText: '',
             ),
             controller: _textPassword,
             onChanged: (value) => _password = value.trim(),
-            obscureText: true,
+            obscureText: obscure,
           ),
           ElevatedButton(
             onPressed: () {
