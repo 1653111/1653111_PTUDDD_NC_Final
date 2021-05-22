@@ -30,16 +30,7 @@ class _TopNewState extends State<TopNew> {
                     itemCount: topN.topNew.length,
                     itemBuilder: (context, index) {
                       return HorizontalListItem(
-                        imageUrl: topN.topNew[index]["imageUrl"],
-                        title: topN.topNew[index]["title"],
-                        subtitle: topN.topNew[index]["subtitle"],
-                        createdAt: topN.topNew[index]["createdAt"],
-                        description: topN.topNew[index]
-                            ["description"],
-                        ratedNumber: topN.topNew[index]
-                            ["ratedNumber"].toDouble(),
-                        soldNumber: topN.topNew[index]["soldNumber"],
-                        totalHours: topN.topNew[index]["totalHours"],
+                        course: topN.topNew[index],
                       );
                     });
               } else {

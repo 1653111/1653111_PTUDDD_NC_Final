@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class LoginController extends GetxController {
+class UserController extends GetxController {
   var user;
   Future<void> login(String email, String password) async {
     var response = await http.post(Uri.https("api.letstudy.org", "/user/login"),

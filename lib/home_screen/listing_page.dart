@@ -19,15 +19,7 @@ class ListingPage extends StatelessWidget {
         body: ListView.builder(
           itemCount: content.length,
           itemBuilder: (context, index) {
-            return VerticalListItem(
-                imageUrl: content[index]["imageUrl"],
-                title: content[index]["title"],
-                subtitle: content[index]["subtitle"],
-                createdAt: content[index]["createdAt"],
-                description: content[index]["description"],
-                ratedNumber: content[index]["ratedNumber"],
-                soldNumber: content[index]["soldNumber"],
-                totalHours: content[index]["totalHours"]);
+            return VerticalListItem(course: content[index]);
           },
         ));
   }

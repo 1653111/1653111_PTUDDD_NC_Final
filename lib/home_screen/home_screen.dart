@@ -5,6 +5,7 @@ import 'package:q_final_project/controller/top_trending_controller.dart';
 import 'package:q_final_project/home_screen/listing_page.dart';
 import 'package:q_final_project/home_screen/top_new.dart';
 import 'package:q_final_project/home_screen/top_trending.dart';
+import 'package:q_final_project/widgets/horizontal_list_instructor.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -68,6 +69,20 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           TopTrending(),
+          SizedBox(height: 15.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Top Instructors",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.left,
+              ),
+              Text("")
+            ],
+          ),
+          SizedBox(height: 10.0),
+          HorizontalListInstructor()
         ]),
       ),
     );

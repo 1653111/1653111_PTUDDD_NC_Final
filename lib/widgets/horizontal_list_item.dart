@@ -3,22 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:q_final_project/course/course_intro_screen.dart';
+import 'package:q_final_project/course/video_player.dart';
 
 class HorizontalListItem extends StatelessWidget {
-  String title, subtitle, description, createdAt;
-  int soldNumber;
-  double totalHours, ratedNumber;
-  String imageUrl;
+  var course;
   EdgeInsets paddingElement = EdgeInsets.only(left: 4.0, top: 3.0);
   HorizontalListItem(
-      {this.title,
-      this.subtitle,
-      this.description,
-      this.ratedNumber,
-      this.createdAt,
-      this.imageUrl,
-      this.soldNumber,
-      this.totalHours});
+      {this.course});
   String dateFormat(String date) {
     DateTime a = DateTime.parse(date);
     return "${a.month}/${a.year}";
@@ -28,7 +20,7 @@ class HorizontalListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        print("a");
+        Get.to(CourseIntroScreen(courseInfo: course));
       },
       child: Container(
         margin: EdgeInsets.only(left: 8.0, top: 4.0, right: 4.0),
@@ -44,7 +36,7 @@ class HorizontalListItem extends StatelessWidget {
                 height: 130.0,
                 child: FittedBox(
                   child: Image.network(
-                    imageUrl,
+                    course["imageUrl"],
                   ),
                   fit: BoxFit.fill,
                 ),
@@ -52,7 +44,7 @@ class HorizontalListItem extends StatelessWidget {
               Container(
                 padding: paddingElement,
                 child: AutoSizeText(
-                  title,
+                  course["title"],
                   style: TextStyle(fontSize: 15.0, color: Colors.white),
                   maxLines: 2,
                   minFontSize: 13.0,
@@ -62,7 +54,7 @@ class HorizontalListItem extends StatelessWidget {
               Container(
                 padding: paddingElement,
                 child: AutoSizeText(
-                  subtitle,
+                  course["subtitle"],
                   style: TextStyle(fontSize: 12.0, color: Colors.grey.shade500),
                   maxLines: 2,
                   minFontSize: 11.0,
@@ -72,7 +64,7 @@ class HorizontalListItem extends StatelessWidget {
               Container(
                 padding: paddingElement,
                 child: AutoSizeText(
-                  "$description  .  ${dateFormat(createdAt)}  .  ${totalHours}h",
+                  "${course["description"]}  .  ${dateFormat(course["createdAt"])}  .  ${course["totalHours"]}h",
                   style: TextStyle(fontSize: 11.0, color: Colors.grey.shade500),
                   maxLines: 2,
                   minFontSize: 10.0,
@@ -83,17 +75,19 @@ class HorizontalListItem extends StatelessWidget {
                   padding: paddingElement,
                   child: FittedBox(
                     child: RatingBar.builder(
-                        initialRating: ratedNumber,
-                        minRating: 0,
-                        direction: Axis.horizontal,
-                        allowHalfRating: true,
-                        itemCount: 5,
-                        itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                        itemBuilder: (context, _) => Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                        onRatingUpdate: null,itemSize: 10.0,),
+                      initialRating: course["ratedNumber"].toDouble(),
+                      minRating: 0,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                      itemBuilder: (context, _) => Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      onRatingUpdate: null,
+                      itemSize: 10.0,
+                    ),
                     fit: BoxFit.fill,
                   )),
             ]),

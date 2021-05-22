@@ -2,22 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:q_final_project/course/course_intro_screen.dart';
 
 class VerticalListItem extends StatelessWidget {
-  String title, subtitle, description, createdAt;
-  int ratedNumber, soldNumber;
-  double totalHours;
-  String imageUrl;
+  var course;
   EdgeInsets paddingElement = EdgeInsets.only(left: 1.0, top: 3.0);
-  VerticalListItem(
-      {this.title,
-      this.subtitle,
-      this.description,
-      this.ratedNumber,
-      this.createdAt,
-      this.imageUrl,
-      this.soldNumber,
-      this.totalHours});
+  VerticalListItem({this.course});
   String dateFormat(String date) {
     DateTime a = DateTime.parse(date);
     return "${a.month}/${a.year}";
@@ -27,7 +17,9 @@ class VerticalListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        print("a");
+        Get.to(CourseIntroScreen(
+          courseInfo: course,
+        ));
       },
       child: InkWell(
         child: Row(
@@ -36,7 +28,7 @@ class VerticalListItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.network(
-                imageUrl,
+                course["imageUrl"],
                 height: 70.0,
                 width: 90.0,
               ),
@@ -46,7 +38,7 @@ class VerticalListItem extends StatelessWidget {
                       children: [
                     Container(
                       child: AutoSizeText(
-                        title,
+                        course["title"],
                         style: TextStyle(fontSize: 16.0, color: Colors.white),
                         maxLines: 2,
                         minFontSize: 12.0,
@@ -55,7 +47,7 @@ class VerticalListItem extends StatelessWidget {
                     ),
                     Container(
                       child: AutoSizeText(
-                        subtitle,
+                        course["subtitle"],
                         style: TextStyle(
                             fontSize: 14.0, color: Colors.grey.shade500),
                         maxLines: 1,
@@ -65,7 +57,7 @@ class VerticalListItem extends StatelessWidget {
                     ),
                     Container(
                       child: AutoSizeText(
-                        "$description  .  ${dateFormat(createdAt)}  .  ${totalHours}h",
+                        "${course["description"]}  .  ${dateFormat(course["createdAt"])}  .  ${course["totalHours"]}h",
                         style: TextStyle(
                             fontSize: 12.0, color: Colors.grey.shade500),
                         maxLines: 1,

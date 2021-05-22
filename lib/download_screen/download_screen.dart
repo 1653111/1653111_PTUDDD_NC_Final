@@ -26,15 +26,7 @@ class DownloadScreen extends StatelessWidget {
             child: ListView.builder(
                 itemCount: down.length,
                 itemBuilder: (context, index) {
-                  return VerticalListItem(
-                      imageUrl: down[index]["imageUrl"],
-                      title: down[index]["title"],
-                      subtitle: down[index]["subtitle"],
-                      createdAt: down[index]["createdAt"],
-                      description: down[index]["description"],
-                      ratedNumber: down[index]["ratedNumber"],
-                      soldNumber: down[index]["soldNumber"],
-                      totalHours: down[index]["totalHours"]);
+                  return VerticalListItem(course: down[index],);
                 }),
           ),
         )

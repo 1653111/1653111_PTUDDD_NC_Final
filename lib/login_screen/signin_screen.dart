@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:q_final_project/controller/login_controller.dart';
+import 'package:q_final_project/controller/user_controller.dart';
 import 'package:q_final_project/dashboard/dashboard.dart';
 import 'package:get/get.dart';
 import 'package:q_final_project/login_screen/register_screen.dart';
@@ -12,7 +12,7 @@ class SigninScreen extends StatefulWidget {
 class _SigninScreenState extends State<SigninScreen> {
   String _username = "", _password = "";
   TextEditingController _textUsername, _textPassword;
-  LoginController login = Get.put(LoginController());
+  UserController user = Get.put(UserController());
   bool obscure = true;
   @override
   void initState() {
@@ -22,8 +22,8 @@ class _SigninScreenState extends State<SigninScreen> {
   }
 
   void userLogin() async {
-    await login.login(_username, _password);
-    if (login.user != null) {
+    await user.login(_username, _password);
+    if (user.user != null) {
       Get.to(Dashboard());
     }
   }

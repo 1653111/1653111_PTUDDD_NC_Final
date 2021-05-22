@@ -30,14 +30,7 @@ class _TopTrendingState extends State<TopTrending> {
                     itemCount: topT.topTrending.length,
                     itemBuilder: (context, index) {
                       return HorizontalListItem(
-                        imageUrl: topT.topTrending[index]["imageUrl"],
-                        title: topT.topTrending[index]["title"],
-                        subtitle: topT.topTrending[index]["subtitle"],
-                        createdAt: topT.topTrending[index]["createdAt"],
-                        description: topT.topTrending[index]["description"],
-                        ratedNumber: topT.topTrending[index]["ratedNumber"].toDouble(),
-                        soldNumber: topT.topTrending[index]["soldNumber"],
-                        totalHours: topT.topTrending[index]["totalHours"],
+                        course: topT.topTrending[index],
                       );
                     });
               } else {
