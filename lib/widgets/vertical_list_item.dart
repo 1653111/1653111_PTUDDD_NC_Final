@@ -24,7 +24,7 @@ class VerticalListItem extends StatelessWidget {
       child: InkWell(
         child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.network(
@@ -39,8 +39,8 @@ class VerticalListItem extends StatelessWidget {
                     Container(
                       child: AutoSizeText(
                         course["title"],
-                        style: TextStyle(fontSize: 16.0, color: Colors.white),
                         maxLines: 2,
+                        maxFontSize: 13.0,
                         minFontSize: 12.0,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -49,9 +49,10 @@ class VerticalListItem extends StatelessWidget {
                       child: AutoSizeText(
                         course["subtitle"],
                         style: TextStyle(
-                            fontSize: 14.0, color: Colors.grey.shade500),
+                          color: Colors.grey.shade500),
                         maxLines: 1,
-                        minFontSize: 12.0,
+                        maxFontSize: 11.0,
+                        minFontSize: 10.0,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -59,7 +60,7 @@ class VerticalListItem extends StatelessWidget {
                       child: AutoSizeText(
                         "${course["description"]}  .  ${dateFormat(course["createdAt"])}  .  ${course["totalHours"]}h",
                         style: TextStyle(
-                            fontSize: 12.0, color: Colors.grey.shade500),
+                            fontSize: 11.0, color: Colors.grey.shade500),
                         maxLines: 1,
                         minFontSize: 10.0,
                         overflow: TextOverflow.ellipsis,
