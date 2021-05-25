@@ -24,7 +24,7 @@ class _SigninScreenState extends State<SigninScreen> {
   void userLogin() async {
     await user.login(_username, _password);
     if (user.user != null) {
-      Get.to(Dashboard());
+      Get.off(Dashboard());
     }
   }
 

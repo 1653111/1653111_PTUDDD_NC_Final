@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:q_final_project/dashboard/dashboard.dart';
+
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -36,6 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         }));
     var tmp = response1.body;
     var tmp1 = json.decode(tmp);
+    print(tmp1);
     if (tmp1["message"] == "OK") {
       var response2 = await http.post(
           Uri.https("api.letstudy.org", "/user/send-activate-email"),
@@ -45,6 +46,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           }));
       var tmp2 = response2.body;
       var tmp3 = json.decode(tmp2);
+      print(tmp3);
       if (tmp3["message"] == "OK") {
         Get.to(AuthTokenScreen());
       }
