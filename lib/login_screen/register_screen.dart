@@ -14,7 +14,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   String _username = "", _password = "", _email = "", _phone = "";
   TextEditingController _textUsername, _textPassword, _textEmail, _textPhone;
-  bool obscure;
+  bool obscure= true;
   @override
   void initState() {
     super.initState();

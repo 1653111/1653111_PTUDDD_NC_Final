@@ -60,18 +60,19 @@ class VerticalListItem extends StatelessWidget {
                       child: AutoSizeText(
                         "${course["description"]}  .  ${dateFormat(course["createdAt"])}  .  ${course["totalHours"]}h",
                         style: TextStyle(
-                            fontSize: 11.0, color: Colors.grey.shade500),
+                             color: Colors.grey.shade500),
                         maxLines: 1,
-                        minFontSize: 10.0,
+                        maxFontSize: 10.0,
+                        minFontSize: 7.0,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ])),
-              Icon(
-                Icons.keyboard_control_rounded,
-                size: 10.0,
-                color: Colors.white,
-              )
+              // Icon(
+              //   Icons.keyboard_control_rounded,
+              //   size: 10.0,
+              //   color: Colors.white,
+              // )
             ]),
       ),
     );
